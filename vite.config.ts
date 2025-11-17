@@ -1,9 +1,10 @@
 
   import { defineConfig } from 'vite';
-  import react from '@vitejs/plugin-react-swc';
+    import react from '@vitejs/plugin-react';
   import path from 'path';
 
   export default defineConfig({
+    base: '/hagiang-bus/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -51,7 +52,7 @@
     },
     build: {
       target: 'esnext',
-      outDir: 'build',
+      outDir: 'docs',
     },
     server: {
       port: 3000,
