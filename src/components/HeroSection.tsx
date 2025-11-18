@@ -32,7 +32,7 @@ export function HeroSection() {
                 Dịch vụ xe giường nằm cao cấp
               </h1>
               <h2 className="hero-heading-secondary">
-                Thuận Thực đồng hành cùng bạn trên mọi hành trình Hà Giang
+                Thuận Thực đồng hành cùng bạn trên mọi hành trình
               </h2>
             </div>
 
@@ -59,7 +59,7 @@ export function HeroSection() {
               </div>
               <div>
                 <div className="hero-hotline__label">Tổng đài 24/7</div>
-                <div className="hero-hotline__value">1900 63 63 71</div>
+                <div className="hero-hotline__value">0983.250.900</div>
               </div>
             </div>
           </motion.div>
@@ -106,8 +106,7 @@ export function HeroSection() {
           <div className="hero-bus-frame">
             <div className="hero-bus-placeholder">
               <div>
-                <div className="hero-bus-title">Hình ảnh xe Thuận Thực</div>
-                <div className="hero-bus-caption">(góc nhìn 3/4 hiện đại)</div>
+                <img src="./src/components/assets/Bus1.jpg" alt="Hình ảnh xe Thuận Thực" />
               </div>
             </div>
             <div className="hero-bus-overlay" />

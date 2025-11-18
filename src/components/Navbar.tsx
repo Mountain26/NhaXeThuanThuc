@@ -10,7 +10,9 @@ export function Navbar() {
         <div className="navbar-row">
           {/* Logo placeholder */}
           <div className="navbar-brand">
-            <div className="navbar-logo">TT</div>
+            <div className="navbar-logo">
+              <img className="logoTT" src="./src/components/assets/Logo TT.jpg"/>
+            </div>
             <span>Nhà xe Thuận Thực</span>
           </div>
 

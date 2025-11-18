@@ -39,7 +39,11 @@
   color: #1a1a1a;
   font-weight: 600;
 }
-
+.logoTT{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
 .navbar-logo {
   width: 2.5rem;
   height: 2.5rem;
