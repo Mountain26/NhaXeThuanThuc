@@ -200,24 +200,62 @@ function ChartTooltipContent({
                     <itemConfig.icon />
                   ) : (
                     !hideIndicator && (
-                      <div
-                        className={cn(
-                          "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
-                          {
-                            "h-2.5 w-2.5": indicator === "dot",
-                            "w-1": indicator === "line",
-                            "w-0 border-[1.5px] border-dashed bg-transparent":
-                              indicator === "dashed",
-                            "my-0.5": nestLabel && indicator === "dashed",
-                          },
+                      <span className="flex items-center">
+                        {indicator === "dot" && (
+                          <svg
+                            width="10"
+                            height="10"
+                            aria-hidden="true"
+                            focusable="false"
+                            className="shrink-0"
+                          >
+                            <rect
+                              width="10"
+                              height="10"
+                              rx="2"
+                              fill={indicatorColor || "currentColor"}
+                              stroke={indicatorColor || "currentColor"}
+                            />
+                          </svg>
                         )}
-                        style={
-                          {
-                            "--color-bg": indicatorColor,
-                            "--color-border": indicatorColor,
-                          } as React.CSSProperties
-                        }
-                      />
+                        {indicator === "line" && (
+                          <svg
+                            width="4"
+                            height="12"
+                            aria-hidden="true"
+                            focusable="false"
+                            className="shrink-0"
+                          >
+                            <rect
+                              x="1"
+                              width="2"
+                              height="12"
+                              rx="1"
+                              fill={indicatorColor || "currentColor"}
+                            />
+                          </svg>
+                        )}
+                        {indicator === "dashed" && (
+                          <svg
+                            width="4"
+                            height="16"
+                            aria-hidden="true"
+                            focusable="false"
+                            className={cn("shrink-0", nestLabel ? "my-0.5" : "")}
+                          >
+                            <line
+                              x1="2"
+                              y1="1"
+                              x2="2"
+                              y2="15"
+                              stroke={indicatorColor || "currentColor"}
+                              strokeWidth="1.5"
+                              strokeDasharray="3 3"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        )}
+                      </span>
                     )
                   )}
                   <div
@@ -289,12 +327,20 @@ function ChartLegendContent({
             {itemConfig?.icon && !hideIcon ? (
               <itemConfig.icon />
             ) : (
-              <div
-                className="h-2 w-2 shrink-0 rounded-[2px]"
-                style={{
-                  backgroundColor: item.color,
-                }}
-              />
+              <svg
+                width="8"
+                height="8"
+                aria-hidden="true"
+                focusable="false"
+                className="shrink-0"
+              >
+                <rect
+                  width="8"
+                  height="8"
+                  rx="2"
+                  fill={item.color || "currentColor"}
+                />
+              </svg>
             )}
             {itemConfig?.label}
           </div>

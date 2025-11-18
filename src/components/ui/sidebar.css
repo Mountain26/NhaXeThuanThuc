@@ -1,0 +1,8 @@
+[data-slot="sidebar-wrapper"] {
+  --sidebar-width: 16rem;
+  --sidebar-width-icon: 3rem;
+}
+
+.sidebar-mobile {
+  --sidebar-width: 18rem;
+}

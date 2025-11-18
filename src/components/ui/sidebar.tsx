@@ -25,6 +25,8 @@ import {
   TooltipTrigger,
 } from "./tooltip";
 
+import "./sidebar.css";
+
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "16rem";
@@ -58,7 +60,7 @@ function SidebarProvider({
   open: openProp,
   onOpenChange: setOpenProp,
   className,
-  style,
+  style: _style,
   children,
   ...props
 }: React.ComponentProps<"div"> & {
@@ -131,15 +133,9 @@ function SidebarProvider({
       <TooltipProvider delayDuration={0}>
         <div
           data-slot="sidebar-wrapper"
-          style={
-            {
-              "--sidebar-width": SIDEBAR_WIDTH,
-              "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
-              ...style,
-            } as React.CSSProperties
-          }
           className={cn(
             "group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full",
+            "sidebar-wrapper",
             className,
           )}
           {...props}
@@ -187,12 +183,7 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
-          style={
-            {
-              "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-            } as React.CSSProperties
-          }
+          className="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden sidebar-mobile"
           side={side}
         >
           <SheetHeader className="sr-only">
@@ -607,8 +598,16 @@ function SidebarMenuSkeleton({
   showIcon?: boolean;
 }) {
   // Random width between 50 to 90%.
-  const width = React.useMemo(() => {
-    return `${Math.floor(Math.random() * 40) + 50}%`;
+  const widthClass = React.useMemo(() => {
+    const options = [
+      "w-1/2",
+      "w-7/12",
+      "w-2/3",
+      "w-3/4",
+      "w-4/5",
+      "w-11/12",
+    ];
+    return options[Math.floor(Math.random() * options.length)];
   }, []);
 
   return (
@@ -625,13 +624,8 @@ function SidebarMenuSkeleton({
         />
       )}
       <Skeleton
-        className="h-4 max-w-(--skeleton-width) flex-1"
+        className={cn("h-4 rounded-md", widthClass)}
         data-sidebar="menu-skeleton-text"
-        style={
-          {
-            "--skeleton-width": width,
-          } as React.CSSProperties
-        }
       />
     </div>
   );
