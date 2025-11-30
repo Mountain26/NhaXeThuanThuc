@@ -25,12 +25,12 @@ export function Navbar() {
             <button type="button" className="navbar-link" onClick={() => scrollToSection("hero")}>
               Trang chủ
             </button>
+            <button type="button" className="navbar-link" onClick={() => scrollToSection("tim-chuyen")}>
+              Tìm chuyến
+            </button>
             <button type="button" className="navbar-link" onClick={() => scrollToSection("tuyen-xe")}>
               Tuyến xe
             </button>
-            <a className="navbar-link" href="tel:0983250900">
-              Đặt vé
-            </a>
             <button type="button" className="navbar-link" onClick={() => scrollToSection("lien-he")}>
               Liên hệ
             </button>

@@ -2,11 +2,14 @@ import { Phone, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion } from "motion/react";
 
+import heroMainImage from "./assets/xett.jpg";
+import heroBusImage from "./assets/NXTT.png";
+
 import "./HeroSection.css";
 
 export function HeroSection() {
   const scrollToBooking = () => {
-    const el = document.getElementById("dat-ve");
+    const el = document.getElementById("tim-chuyen");
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -89,7 +92,7 @@ export function HeroSection() {
             {/* Curved image frame for landscape */}
             <div className="hero-media-frame">
               <div className="hero-media-placeholder">
-                <img src="https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/539355485_1198959562040848_9198228117422014222_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGaPuFAwxFnGFbth200kBevhaETSgzlmUuFoRNKDOWZS9CEdNf5ohUbzEqip2RmBI1mb_v-8fUJV_ua_FA51P_M&_nc_ohc=C1RX9YdBMCkQ7kNvwF77e2G&_nc_oc=AdkwKUPgrdk4RmBXAy1ptmMSh7Psm-yZ60iiydosIujM0aABbFZtd8v2iQ-pkSP0lJY&_nc_zt=23&_nc_ht=scontent.fhan20-1.fna&_nc_gid=8IX1S-8s95y0v1yussgM3g&oh=00_Afj7HG-4KpGzUkVXcNn_eAxxRW507e_hWuqV-xyOQJPHPg&oe=69221869" alt="" />
+                <img src={heroMainImage} alt="Khoang xe Thuận Thực sang trọng" />
               </div>
               {/* Decorative overlay */}
               <div className="hero-media-overlay" />
@@ -120,9 +123,7 @@ export function HeroSection() {
           {/* Bus frame with perspective */}
           <div className="hero-bus-frame">
             <div className="hero-bus-placeholder">
-              <div>
-              <img src="src/components/assets/NXTT.png" alt="Hình ảnh xe Thuận Thực" />
-              </div>
+              <img src={heroBusImage} alt="Hình ảnh xe Thuận Thực" />
             </div>
             <div className="hero-bus-overlay" />
           </div>

@@ -15,7 +15,7 @@ export default function App() {
       <section id="hero">
         <HeroSection />
       </section>
-      <section id="dat-ve">
+      <section id="tim-chuyen">
         <BookingForm />
       </section>
       <section id="lien-he">
